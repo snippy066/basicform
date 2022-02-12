@@ -7,11 +7,10 @@ import (
 )
 
 func main() {
-	fileserv := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileserv)
+	fileserve := http.FileServer(http.Dir("./static"))
+	http.Handle("/", fileserve)
 
-	fmt.Print("server started at port 8080\n")
-
+	fmt.Print("server started at 8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
