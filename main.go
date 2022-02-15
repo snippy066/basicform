@@ -9,12 +9,15 @@ import (
 func formhandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		fmt.Fprintf(w, "Error in parsing form err: %v", err)
-		//fmt.Fprint(w, "hi")
 		return
 	}
 
-	fmt.Fprintf(w, "GET request successfully executed")
+	fmt.Fprintf(w, "POST request successfully executed\n")
+	name := r.FormValue("name")
+	add := r.FormValue("addr")
 
+	fmt.Fprintf(w, "name : %s\n", name)
+	fmt.Fprintf(w, "address: %s", add)
 }
 
 func main() {
